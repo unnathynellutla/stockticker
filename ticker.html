@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<title>Stock Ticker</title>
+</head>
+<body>
+<h1>Enter Stock Ticker or Company Name:</h1>
+<form action = "http://localhost:8080/process" method = "post">
+<input type="radio"  name="t_c" value = "ticker" checked="checked"/>Ticker:
+<p><input type="text"  name="ticker"  /></p>
+<input type="radio"  name="t_c"/>Company Name:
+<p><input type="text"  name="company" /></p>
+<input type="submit" value="Submit">
+</form>
+<!--Switch input boxes -->
+<script language = "javascript">
+if( $('[name = t_c]:first:checked').val() === "ticker"){	
+	$("[name = ticker]").show();
+	$("[name = company]").hide();
+}; 	
+$("[name = t_c]").click(function() {
+	$("[name = ticker]").hide();
+	$("[name = company]").show();
+}); 
+$('[name= t_c]:first').click(function() {
+	$("[name = ticker]").show();
+	$("[name = company]").hide();
+}); 
+</script>
+
+</body>
+</html>
